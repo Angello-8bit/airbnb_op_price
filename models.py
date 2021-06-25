@@ -10,9 +10,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 DB = SQLAlchemy()
 
-dataset = pd.read_csv('airbnb_data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 1].values
+dataset = pd.read_csv('airbnb_data.csv.csv')
+X = dataset.drop(columns=['price'])
+y = dataset["price"]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33, random_state = 0)
 
